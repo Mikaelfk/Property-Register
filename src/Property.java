@@ -1,7 +1,9 @@
-
+/**
+ * A class for storing all the information of a certain property
+ */
 public class Property {
     //Fields
-    private final int  municipalityNumber;
+    private final int municipalityNumber;
     private final String municipalityName;
     private final int lotNumber;
     private final int sectionNumber;
@@ -20,47 +22,74 @@ public class Property {
         this.nameOfOwner = nameOfOwner;
     }
 
+    /**
+     * This method prints out all the information of the property.
+     */
     void printInfo() {
         System.out.println("Municipality Number: " + getMunicipalityNumber());
         System.out.println("Municipality Name: " + getMunicipalityName());
         System.out.println("Lot Number: " + getLotNumber());
         System.out.println("Section Number: " + getSectionNumber());
-        System.out.println("Name: " + getName());
+        if (!getName().equals("")) {
+            System.out.println("Name: " + getName());
+        }
         System.out.println("Area: " + getArea());
         System.out.println("Name of Owner: " + getNameOfOwner());
     }
-    //Getters for all of the fields
+
+    /**
+     * @return The municipality number
+     */
     public int getMunicipalityNumber() {
         return municipalityNumber;
     }
 
+    /**
+     * @return The municipality name
+     */
     public String getMunicipalityName() {
         return municipalityName;
     }
 
+    /**
+     * @return The lot number
+     */
     public int getLotNumber() {
         return lotNumber;
     }
 
+    /**
+     * @return The section number
+     */
     public int getSectionNumber() {
         return sectionNumber;
     }
 
+    /**
+     * @return The name of the property
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return The area of the property.
+     */
     public double getArea() {
         return area;
     }
 
+    /**
+     * @return The name of the property owner
+     */
     public String getNameOfOwner() {
         return nameOfOwner;
     }
 
+    /**
+     * @return The property id
+     */
     public String getPropertyId() {
         return (municipalityNumber + "-" + lotNumber + "/" + sectionNumber);
     }
-
-
 }
