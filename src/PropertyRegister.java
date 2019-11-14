@@ -139,7 +139,7 @@ public class PropertyRegister {
     }
 
     /**
-     * This method returns an iterator that iterates through the values of the hashmap propertyList
+     * This method returns an iterator that iterates through the values of the HashMap propertyList
      * @return An iterator
      */
     Iterator<Property> getIterator() {

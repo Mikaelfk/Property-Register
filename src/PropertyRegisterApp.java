@@ -98,7 +98,7 @@ public class PropertyRegisterApp {
         if (propertyRegister.searchMunicipalityNumber(number).size() == 0) {
             System.out.println("There is no property in the registry with this title");
         } else {
-            System.out.println("Here is a list of all the propertys with this title");
+            System.out.println("Here is a list of all the properties with this title");
             System.out.println("---------------------------------------------------------------------------------------");
             for (int i = 0; i < propertyRegister.searchMunicipalityNumber(number).size(); i++) {
                 propertyRegister.searchMunicipalityNumber(number).get(i).printInfo();
@@ -148,14 +148,15 @@ public class PropertyRegisterApp {
 
     /**
      * This method asks the user for inputs which create a property id.
+     * This method is used to search by id and to remove by id.
      * @return the id of a property in a string
      */
-    String id() {
-        System.out.println("Type in the municipality number of the property you wish to search for");
+    private String searchId() {
+        System.out.println("Type in the municipality number of the property you wish to find");
         int municipalityNumber = checkInt();
-        System.out.println("Type in the lot number of the property you wish to search for");
+        System.out.println("Type in the lot number of the property you wish to find");
         int lotNumber = checkInt();
-        System.out.println("Type in the section number of the property you wish to search for");
+        System.out.println("Type in the section number of the property you wish find");
         int sectionNumber = checkInt();
         return municipalityNumber+"-"+lotNumber+"/"+sectionNumber;
     }
@@ -164,7 +165,7 @@ public class PropertyRegisterApp {
      * This method searches the registry based on an id.
      */
     private void search() {
-        String id = id();
+        String id = searchId();
         Property returnedsearch = propertyRegister.search(id);
         if (returnedsearch == null) {
             System.out.println("There is no property corresponding to these numbers");
@@ -227,7 +228,7 @@ public class PropertyRegisterApp {
      * Method which removes a property.
      */
     private void removeProperty() {
-        String id = id();
+        String id = searchId();
         Property returnedSearch = propertyRegister.search(id);
         if (returnedSearch == null) {
             System.out.println("No property was found");
@@ -246,7 +247,7 @@ public class PropertyRegisterApp {
     }
 
     /**
-     * Method which prints all the propertys.
+     * Method which prints all the properties.
      */
     private void listAllProperties() {
         Iterator<Property> propertyIterator = propertyRegister.getIterator();
@@ -259,9 +260,22 @@ public class PropertyRegisterApp {
                 Property property = propertyIterator.next();
                 property.printInfo();
                 System.out.println("----------------------------------------------------");
-
             }
         }
+    }
+
+    /**
+     * Method that lists the amount of properties in the registry
+     */
+    private void listTotalProperties() {
+        System.out.println("The total number of properties in the register:");
+        System.out.println(propertyRegister.getTotalProperties());
+    }
+    /**
+     * Method that calculates the mean area of all the properties
+     */
+    private void calculateMeanArea() {
+        System.out.println(propertyRegister.calculateMeanAreal());
     }
 
     /**
@@ -280,21 +294,6 @@ public class PropertyRegisterApp {
             }
         } while (!done);
         return input;
-    }
-
-    /**
-     * Method that calulates the mean area of all the properties
-     */
-    private void calculateMeanArea() {
-        System.out.println(propertyRegister.calculateMeanAreal());
-    }
-
-    /**
-     * Method that lists the amount of properties in the registry
-     */
-    private void listTotalProperties() {
-        System.out.println("The total number of propeties in the register:");
-        System.out.println(propertyRegister.getTotalProperties());
     }
 
     public static void main(String[] args) {

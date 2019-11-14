@@ -40,28 +40,28 @@ public class Property {
     /**
      * @return The municipality number
      */
-    public int getMunicipalityNumber() {
+    int getMunicipalityNumber() {
         return municipalityNumber;
     }
 
     /**
      * @return The municipality name
      */
-    public String getMunicipalityName() {
+    private String getMunicipalityName() {
         return municipalityName;
     }
 
     /**
      * @return The lot number
      */
-    public int getLotNumber() {
+    int getLotNumber() {
         return lotNumber;
     }
 
     /**
      * @return The section number
      */
-    public int getSectionNumber() {
+    int getSectionNumber() {
         return sectionNumber;
     }
 
@@ -75,21 +75,21 @@ public class Property {
     /**
      * @return The area of the property.
      */
-    public double getArea() {
+    double getArea() {
         return area;
     }
 
     /**
      * @return The name of the property owner
      */
-    public String getNameOfOwner() {
+    private String getNameOfOwner() {
         return nameOfOwner;
     }
 
     /**
      * @return The property id
      */
-    public String getPropertyId() {
+    String getPropertyId() {
         return (municipalityNumber + "-" + lotNumber + "/" + sectionNumber);
     }
 }
